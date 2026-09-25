@@ -6,9 +6,11 @@ export default function Navbar() {
   const count = cart.reduce((sum, item) => sum + item.qty, 0)
 
   return (
-    <nav style={{ padding: '1rem', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between' }}>
-      <Link to="/">Shopee Clone</Link>
-      <Link to="/cart">Cart ({count})</Link>
+    <nav className="navbar">
+      <Link to="/" className="navbar-brand">Shopping Cart</Link>
+      <Link to="/cart" className="navbar-cart">
+        Cart <span className="cart-badge">{count}</span>
+      </Link>
     </nav>
   )
 }

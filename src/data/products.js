@@ -1,11 +1,100 @@
-const placeholder = (label) =>
-  `data:image/svg+xml,${encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><rect width='100%' height='100%' fill='#eee'/><text x='50%' y='50%' font-size='14' text-anchor='middle' dominant-baseline='middle' fill='#999'>${label}</text></svg>`
-  )}`
-
-export const products = [
-  { id: 1, name: 'Wireless Earbuds', price: 899, image: placeholder('Wireless Earbuds'), stock: 50 },
-  { id: 2, name: 'Phone Case', price: 149, image: placeholder('Phone Case'), stock: 120 },
-  { id: 3, name: 'Power Bank 10000mAh', price: 599, image: placeholder('Power Bank 10000mAh'), stock: 30 },
-  { id: 4, name: 'USB-C Cable', price: 99, image: placeholder('USB-C Cable'), stock: 200 },
+export const PRODUCTS = [
+  {
+    _id: "prod_001",
+    name: "Tailored Wool Blazer",
+    category: "Outerwear",
+    price: 289.99,
+    sku: "TWB-BLK-42",
+    description: "Italian merino wool, structured silhouette.",
+    color: "Midnight Black",
+    sizes: ["XS","S","M","L","XL"],
+    stock: 14,
+    image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80"
+  },
+  {
+    _id: "prod_002",
+    name: "Silk Wrap Dress",
+    category: "Dresses",
+    price: 195.00,
+    sku: "SWD-IVY-S",
+    description: "100% mulberry silk, adjustable wrap tie.",
+    color: "Ivory",
+    sizes: ["XS","S","M","L"],
+    stock: 8,
+    image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&q=80"
+  },
+  {
+    _id: "prod_003",
+    name: "Cashmere Turtleneck",
+    category: "Knitwear",
+    price: 165.00,
+    sku: "CTN-CRM-M",
+    description: "Grade-A Scottish cashmere, relaxed fit.",
+    color: "Cream",
+    sizes: ["XS","S","M","L","XL","XXL"],
+    stock: 22,
+    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80"
+  },
+  {
+    _id: "prod_004",
+    name: "Wide Leg Trousers",
+    category: "Bottoms",
+    price: 145.00,
+    sku: "WLT-TAN-32",
+    description: "High-waisted linen blend, pressed crease.",
+    color: "Tan",
+    sizes: ["XS","S","M","L","XL"],
+    stock: 18,
+    image: "https://i.pinimg.com/originals/2d/ee/58/2dee58b4af26b87a92ceff6987c0a548.jpg?w=400&q=80"
+  },
+  {
+    _id: "prod_005",
+    name: "Leather Crossbody Bag",
+    category: "Accessories",
+    price: 320.00,
+    sku: "LCB-CHC-OS",
+    description: "Full-grain Italian leather, gold hardware.",
+    color: "Chocolate",
+    sizes: ["One Size"],
+    stock: 6,
+    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80"
+  },
+  {
+    _id: "prod_006",
+    name: "Linen Shirt Dress",
+    category: "Dresses",
+    price: 175.00,
+    sku: "LSD-SAG-M",
+    description: "Enzyme-washed linen, self-tie belt.",
+    color: "Sage",
+    sizes: ["XS","S","M","L","XL"],
+    stock: 11,
+    image: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400&q=80"
+  },
+  {
+    _id: "prod_007",
+    name: "Linen T-Shirt",
+    category: "Tops",
+    price: 65.00,
+    sku: "LTS-WHT-M",
+    description: "Enzyme-washed linen, relaxed fit, crew neck.",
+    color: "White",
+    sizes: ["XS","S","M","L","XL","XXL"],
+    stock: 30,
+    image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&q=80"
+  },
+  {
+    _id: "prod_008",
+    name: "Heavy Metal Tee",
+    category: "Tops",
+    price: 45.00,
+    sku: "HMT-BLK-M",
+    description: "100% heavyweight cotton, washed black.",
+    color: "Washed Black",
+    sizes: ["XS","S","M","L","XL","XXL"],
+    stock: 25,
+    image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400&q=60"
+  }
 ]
+
+export const CATEGORIES = ["All", "Outerwear", "Dresses", "Knitwear", "Bottoms", "Tops", "Accessories"]

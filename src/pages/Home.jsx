@@ -1,36 +1,37 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { products } from '../data/products'
-import { useCart } from '../context/CartContext'
+import { PRODUCTS, CATEGORIES } from '../data/products'
 
 export default function Home() {
-  const { addToCart } = useCart()
-  const [addedIds, setAddedIds] = useState(new Set())
+  const [category, setCategory] = useState('All')
 
-  const handleAdd = (product) => {
-    addToCart(product)
-    setAddedIds((prev) => new Set(prev).add(product.id))
-    setTimeout(() => {
-      setAddedIds((prev) => {
-        const next = new Set(prev)
-        next.delete(product.id)
-        return next
-      })
-    }, 800)
-  }
+  const filtered = PRODUCTS.filter(
+    (p) => category === 'All' || p.category === category
+  )
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem', padding: '1rem' }}>
-      {products.map((p) => (
-        <div key={p.id} style={{ border: '1px solid #eee', padding: '1rem' }}>
-          <Link to={`/product/${p.id}`}>
-            <img src={p.image} alt={p.name} style={{ width: '100%' }} />
+    <div className="page">
+      <div className="category-filter">
+        {CATEGORIES.map((c) => (
+          <button
+            key={c}
+            className={`category-btn${c === category ? ' active' : ''}`}
+            onClick={() => setCategory(c)}
+          >
+            {c}
+          </button>
+        ))}
+      </div>
+
+      <div className="product-grid">
+        {filtered.map((p) => (
+          <Link to={`/product/${p._id}`} key={p._id} className="product-card">
+            <img src={p.image} alt={p.name} className="product-image" />
             <h3>{p.name}</h3>
+            <p className="product-price">${p.price.toFixed(2)}</p>
           </Link>
-          <p>₱{p.price}</p>
-          <button onClick={() => handleAdd(p)}>{addedIds.has(p.id) ? 'Added' : 'Add to Cart'}</button>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
